@@ -2,8 +2,9 @@ import { getVideoIdsFromSearch } from "./youtube/search"
 import { getVideoDetails } from "./youtube/videos"
 
 const searchTerm = "minecraft"
+const maxResults = 250
 
-const videoIds = await getVideoIdsFromSearch({ searchTerm, maxResults: 50 })
+const videoIds = await getVideoIdsFromSearch({ searchTerm, maxResults })
 
 console.log("Found", videoIds.length, "videos")
 
