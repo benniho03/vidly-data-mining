@@ -1,3 +1,6 @@
+import { iso8601ToSeconds } from "../helpers/duration-parser"
+
+
 export async function getVideoDetails(videoIds: string[] | string): Promise<any[]> {
 
     const videoDetails = []
@@ -33,7 +36,7 @@ export async function getVideoDetails(videoIds: string[] | string): Promise<any[
             dislikeCount: item.statistics.dislikeCount,
             commentCount: item.statistics.commentCount,
             viewCount: item.statistics.viewCount,
-            duration: item.contentDetails.duration,
+            duration: iso8601ToSeconds(item.contentDetails.duration),
             publishedAt: item.snippet.publishedAt,
             caption: item.contentDetails.caption,
             tags: item.snippet.tags,
