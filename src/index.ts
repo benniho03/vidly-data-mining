@@ -1,7 +1,7 @@
 import { getVideoIdsFromSearch } from "./youtube/search"
 import { getVideoDetails } from "./youtube/videos"
 
-const searchTerm = "minecraft"
+const searchTerm = "imkerei"
 
 const videoIds = await getVideoIdsFromSearch({ searchTerm, maxResults: 50 })
 
