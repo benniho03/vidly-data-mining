@@ -2,7 +2,7 @@ import { getVideoIdsFromSearch } from "./youtube/search"
 import { getVideoDetails } from "./youtube/videos"
 
 
-const searchTerm = "onlinemedien"
+const searchTerm = "theo t3 the modern react tutorial"
 const maxResults = 50
 
 const start = new Date().getTime()
