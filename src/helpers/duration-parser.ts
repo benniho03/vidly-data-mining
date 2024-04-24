@@ -5,7 +5,7 @@ export function iso8601ToSeconds(duration: string): number {
     if (!matches) {
         throw new Error("Invalid ISO 8601 duration format");
     }
-
+    
     // Extrahiere die Teile der Dauer
     const years = matches[1] ? parseInt(matches[1]) : 0;
     const months = matches[2] ? parseInt(matches[2]) : 0;
@@ -17,14 +17,16 @@ export function iso8601ToSeconds(duration: string): number {
 
     // Berechne die Gesamtzahl der Sekunden
     const totalSeconds = (
-        years * 365 * 24 * 60 * 60 +
-        months * 30 * 24 * 60 * 60 +
-        weeks * 7 * 24 * 60 * 60 +
+        years * 365 * 24 * 60 * 60 + // Annäherung an Jahre, ignoriert Schaltjahre
+        months * 30 * 24 * 60 * 60 + // Annäherung an Monate, ignoriert Schaltjahre
+        weeks * 7 * 24 * 60 * 60 + // Umrechnung von Wochen in Tage
         days * 24 * 60 * 60 +
         hours * 60 * 60 +
         minutes * 60 +
         seconds
     );
     // console.log("ISO Zeit: ", duration, " Sekunden Zeit: ", totalSeconds)
+
     return totalSeconds;
 }
+
