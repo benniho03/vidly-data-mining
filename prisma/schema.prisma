@@ -14,7 +14,7 @@ datasource db {
 }
 
 model Video {
-  id              String    @id
+  id              String   @id
   title           String
   thumbnail       String
   description     String

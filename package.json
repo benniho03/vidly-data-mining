@@ -6,12 +6,13 @@
     "dev": "bun run ./src/index.ts"
   },
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "prisma": "^5.13.0"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
   },
   "dependencies": {
-    "prisma": "^5.13.0"
+    "@prisma/client": "^5.13.0"
   }
 }
