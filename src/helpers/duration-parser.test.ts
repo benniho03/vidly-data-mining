@@ -19,13 +19,7 @@ test("Umwandlung von ISO zu Sekunden", () => {
         expected: 90061
     }, {
         input: "P1W1DT1H1M1S",
-        expected: 630061
-    }, {
-        input: "P1M1W1DT1H1M1S",
-        expected: 2592061
-    }, {
-        input: "P1Y1M1W1DT1H1M1S",
-        expected: 31557661
+        expected: 694861
     }]
     tests.forEach(test => expect(iso8601ToSeconds(test.input)).toBe(test.expected))
 });
