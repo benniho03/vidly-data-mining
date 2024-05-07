@@ -14,18 +14,18 @@ datasource db {
 }
 
 model videos {
-  id              Int @id @default(autoincrement())
+  id              String   @id
   title           String
   thumbnail       String
   description     String
   channel         String
   likeCount       Int
-  commentCount    Int
+  commentCount    Int?
   viewCount       Int
-  duration        String
+  duration        Int
   publishedAt     DateTime
   caption         String
   tags            String[]
   topicCategories String[]
-  language        String
+  language        String?
 }

@@ -19,7 +19,7 @@ export async function getVideoDetails(videoIds: string[] | string): Promise<any[
 
         if (!response.ok) {
             console.error(response.status, response.statusText)
-            console.log(await response.text())
+            // console.log(await response.text())
             throw new Error("Failed to fetch videos",)
         }
 
@@ -28,22 +28,21 @@ export async function getVideoDetails(videoIds: string[] | string): Promise<any[
         if (!data.items) throw new Error("No videos found")
 
         videoDetails.push(...data.items.map((item: any) => ({
+            id: item.id,
             title: item.snippet.title,
             thumbnail: item.snippet.thumbnails.default.url,
             description: item.snippet.description,
             channel: item.snippet.channelTitle,
-            likeCount: item.statistics.likeCount,
-            dislikeCount: item.statistics.dislikeCount,
-            commentCount: item.statistics.commentCount,
-            viewCount: item.statistics.viewCount,
+            likeCount: Number(item.statistics.likeCount),
+            commentCount: Number(item.statistics.commentCount) === undefined ? null : Number(item.statistics.commentCount),
+            viewCount: Number(item.statistics.viewCount),
             duration: iso8601ToSeconds(item.contentDetails.duration),
             publishedAt: item.snippet.publishedAt,
             caption: item.contentDetails.caption,
             tags: item.snippet.tags,
             topicCategories: item.topicDetails?.topicCategories,
-            language: item.snippet.defaultAudioLanguage,
+            language: item.snippet.defaultAudioLanguage === undefined ? null : item.snippet.defaultAudioLanguage
         })))
-
     }
 
     return videoDetails
