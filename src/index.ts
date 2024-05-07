@@ -3,7 +3,7 @@ import { getVideoIdsFromSearch } from "./youtube/search"
 import { getVideoDetails } from "./youtube/videos"
 import { Prisma, PrismaClient } from '@prisma/client'
 
-const searchTerm = "imkerei"
+const searchTerm = "super mario bros"
 const maxResults = 50
 
 const start = new Date().getTime()

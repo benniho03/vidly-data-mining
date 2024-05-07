@@ -34,14 +34,14 @@ export async function getVideoDetails(videoIds: string[] | string): Promise<any[
             description: item.snippet.description,
             channel: item.snippet.channelTitle,
             likeCount: Number(item.statistics.likeCount),
-            commentCount: Number(item.statistics.commentCount) === undefined ? null : Number(item.statistics.commentCount),
+            commentCount: Number(item.statistics.commentCount) ?? null,
             viewCount: Number(item.statistics.viewCount),
             duration: iso8601ToSeconds(item.contentDetails.duration),
             publishedAt: item.snippet.publishedAt,
             caption: item.contentDetails.caption,
             tags: item.snippet.tags,
             topicCategories: item.topicDetails?.topicCategories,
-            language: item.snippet.defaultAudioLanguage === undefined ? null : item.snippet.defaultAudioLanguage
+            language: item.snippet.defaultAudioLanguage ?? null
         })))
     }
 

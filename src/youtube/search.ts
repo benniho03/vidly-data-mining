@@ -17,7 +17,6 @@ export async function getVideoIdsFromSearch({ searchTerm, maxResults }: { search
         const response = await fetch("https://www.googleapis.com/youtube/v3/search?" + params)
 
         if (!response.ok) {
-            console.log(response)
             throw new Error("Failed to fetch videos")
         }
 
